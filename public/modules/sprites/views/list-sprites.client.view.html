@@ -1,0 +1,19 @@
+<section data-ng-controller="SpritesController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Sprites</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="sprite in sprites" data-ng-href="#!/sprites/{{sprite._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="sprite.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="sprite.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="sprite.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!sprites.$resolved || sprites.length">
+    	No Sprites yet, why don't you <a href="/#!/sprites/create">create one</a>?
+    </div>
+</section>
